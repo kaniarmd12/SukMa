@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\product;
 use Illuminate\Http\Request;
+use App\Models\product_category;
 
 class ProductController extends Controller
 {
@@ -12,7 +13,11 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $product = product_category::all();
+        $title = 'Delete User!';
+        $text = "Are you sure you want to delete?";
+        confirmDelete($title, $text);
+        return view('admin.product.index', compact(['product']));
     }
 
     /**
@@ -20,7 +25,9 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        $product = product_category::all();
+        // dd($product);
+        return view ('admin.product.create', compact(['product']));
     }
 
     /**
@@ -28,7 +35,14 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $product = product::create([
+            'pdc_pictures_product'     => $request->pdc_pictures_product,
+            'pdc_name'  => $request->pdc_name,
+            'pdc_category_product_id'  => $request->ctg_category_product_id,
+            'pdc_price'    => $request->pdc_price,
+            'pdc_detail_product'=> $request->pdc_detail_product,
+            'pdc_stok_product'=> $request->pdc_stock_product
+        ]);
     }
 
     /**

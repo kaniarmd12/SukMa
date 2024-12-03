@@ -217,7 +217,7 @@
             </li> 
           </li>
           <li class="sidebar-item">
-            <a class="sidebar-link" href="./main/app-contact2.html" aria-expanded="false">
+            <a class="sidebar-link" href="/admin/Product" aria-expanded="false">
               <span>
                 <i class="ti ti-basket"></i>
               </span>

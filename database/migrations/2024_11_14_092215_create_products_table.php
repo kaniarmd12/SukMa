@@ -19,6 +19,9 @@ return new class extends Migration
             $table->string('pdc_detail_product');
             $table->string('pdc_stok_product');
             $table->unsignedBigInteger('pdc_category_product_id'); 
+            $table->timestamps();
+            $table->renameColumn('updated_at','pdc_updated_at');
+            $table->renameColumn('created_at','pdc_created_at');
             $table->unsignedBigInteger('pdc_created_by')->unsigned()->nullable();
             $table->unsignedBigInteger('pdc_deleted_by')->unsigned()->nullable();
             $table->unsignedBigInteger('pdc_updated_by')->unsigned()->nullable();

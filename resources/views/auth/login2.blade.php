@@ -13,7 +13,7 @@
   <!-- Core Css -->
   <link rel="stylesheet" href="../assets/css/styles.css" />
 
-  <title>Modernize Bootstrap Admin</title>
+  <title>Login Sukma</title>
 </head>
 
 <body>
@@ -29,10 +29,17 @@
             <div class="card mb-0">
               <div class="card-body">
                 <a href="../main/index.html" class="text-nowrap logo-img text-center d-block mb-5 w-100">
-                  <img src="../assets/images/logos/dark-logo.svg" class="dark-logo" alt="Logo-Dark" />
+                  <img src="../assets/images/logos/logosukma3.svg" class="dark-logo" alt="Logo-Dark" />
                   <img src="../assets/images/logos/light-logo.svg" class="light-logo" alt="Logo-light" />
                 </a>
                 
+                @error('email')
+                <div class="alert alert-danger alert-dismissible bg-danger text-white border-0 fade show" role="alert">
+                  <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="Close"></button>
+                  <strong class="text-center">Username atau Password Salah </strong> 
+                </div>
+                @enderror
+
                 <form  method="POST" action="{{ route('login') }}">
                     @csrf
                   <div class="mb-3">
@@ -58,7 +65,7 @@
                   <input type="submit" class="btn btn-primary w-100 py-8 mb-4 rounded-2" value="{{ __('Log in') }}">
                   <div class="d-flex align-items-center justify-content-center">
                     <p class="fs-4 mb-0 fw-medium">New to Modernize?</p>
-                    <a class="text-primary fw-medium ms-2" href="../main/authentication-register.html">Create an
+                    <a class="text-primary fw-medium ms-2" href="register2">Create an
                       account</a>
                   </div>
                 </form>

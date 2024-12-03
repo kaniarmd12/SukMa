@@ -8,7 +8,7 @@
     SukMa | Tambah Kategori
 @endsection
 
-@section('contents')
+@section('content')
    <div class="row">
     <div class="col-lg-12">
         <div class="card">
