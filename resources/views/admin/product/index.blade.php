@@ -40,16 +40,18 @@
                         </thead>
                         <tbody>
                             <!-- start row -->
-                            @foreach ($product as $no=>$product)
+                            @foreach ($products as $no=>$product)
                             <tr>
                                 
                                 <td>{{$no+1}}</td>
-                                <td>{{$product->pdc_pictures}}</td>
+                                <td>
+                                    <img width="100px" src="{{ asset('storage/'.$product->pdc_pictures_product)}}" alt="">
+                                </td>
                                 <td>{{$product->pdc_name}}</td>
-                                <td>{{$product->pdc_category_product_id}}</td>
                                 <td>{{$product->pdc_price}}</td>
-                                <td>{{$product->pdc_detail}}</td>
-                                <td>{{$product->pdc_stok}}</td>
+                                <td>{{$product->pdc_detail_product}}</td>
+                                <td>{{$product->pdc_stok_product}}</td>
+                                <td>{{$product->pdc_category_product_id}}</td>
                               
                                 <td>
                                      <a href="/admin/Product/{{$product->pdc_id}}/edit" class="btn btn-primary">Edit</a>

@@ -15,7 +15,7 @@
           <div class="px-4 py-3 border-bottom">
             <h4 class="card-title mb-0">Tambah Produk</h4>
           </div>
-          <form action="" method="post">
+          <form action="" method="post" enctype="multipart/form-data">
             @csrf
             <div class="card-body">
                 <div class="mb-4 row align-items-center">

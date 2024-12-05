@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\product;
 use Illuminate\Http\Request;
 use App\Models\product_category;
+use Alert;
 
 class ProductController extends Controller
 {
@@ -13,11 +14,11 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $product = product_category::all();
+        $products = product::all();
         $title = 'Delete User!';
         $text = "Are you sure you want to delete?";
         confirmDelete($title, $text);
-        return view('admin.product.index', compact(['product']));
+        return view('admin.product.index', compact(['products']));
     }
 
     /**
@@ -34,16 +35,35 @@ class ProductController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-        $product = product::create([
-            'pdc_pictures_product'     => $request->pdc_pictures_product,
-            'pdc_name'  => $request->pdc_name,
-            'pdc_category_product_id'  => $request->ctg_category_product_id,
-            'pdc_price'    => $request->pdc_price,
-            'pdc_detail_product'=> $request->pdc_detail_product,
-            'pdc_stok_product'=> $request->pdc_stock_product
-        ]);
-    }
+{
+    // Validasi input
+    $request->validate([
+        'pdc_pictures_product' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Validasi file gambar
+        'pdc_name' => 'required|string|max:255',
+        'ctg_category_product_id' => 'required|integer',
+        'pdc_price' => 'required|numeric',
+        'pdc_detail_product' => 'required|string',
+        'pdc_stock_product' => 'required|integer',
+    ]);
+
+    // Upload gambar
+    $imagePath = $request->file('pdc_pictures_product')->store('products', 'public'); // Simpan ke direktori 'storage/app/public/products'
+
+    // Simpan data ke database
+    $product = Product::create([
+        'pdc_pictures_product' => $imagePath, // Path file disimpan di database
+        'pdc_name' => $request->pdc_name,
+        'pdc_category_product_id' => $request->ctg_category_product_id,
+        'pdc_price' => $request->pdc_price,
+        'pdc_detail_product' => $request->pdc_detail_product,
+        'pdc_stok_product' => $request->pdc_stock_product
+    ]);
+
+    // Berikan notifikasi sukses
+    Alert::success('Berhasil Ditambahkan', 'Berhasil Menambahkan Produk');
+
+    return redirect('/admin/Product');
+}
 
     /**
      * Display the specified resource.
