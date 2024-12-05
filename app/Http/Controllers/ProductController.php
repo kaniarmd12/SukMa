@@ -76,18 +76,36 @@ class ProductController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(product $product)
+    public function edit(product $product, $id)
     {
-        //
+        $product = Product::with('product_category')->findOrFail($id); // Muat relasi kategori
+        $product_category = product_category::all(); // Ambil semua kategori
+        return view('admin.product.edit', compact('product', 'product_category'));
+
+        
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, product $product)
+    public function update(Request $request, product $product ,$id)
     {
-        //
+        $data = [
+                'pdc_name' => $request->pdc_name,
+                'pdc_category_product_id' => $request->ctg_category_product_id,
+                'pdc_price' => $request->pdc_price,
+                'pdc_detail_product' => $request->pdc_detail_product,
+                'pdc_stok_product' => $request->pdc_stock_product
+        ];
+        if($request->file('pdc_pictures_product')){
+         $imagePath = $request->file('pdc_pictures_product')->store('products', 'public');  
+        }
+        
+        $productUpdate = Product::findOrFail($id)->update($data);
+        Alert::success('Berhasil Mengubah', 'Kelas Berhasil Diubah');
+        return redirect('/admin/Product');
     }
+
 
     /**
      * Remove the specified resource from storage.

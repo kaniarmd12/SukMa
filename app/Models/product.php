@@ -15,4 +15,9 @@ class product extends Model
     const CREATED_AT = 'pdc_created_at';
     const UPDATED_AT = 'pdc_updated_at';
     const DELETED_AT = 'pdc_deleted_at';
+
+public function product_category()
+    {
+        return $this->belongsTo(product_category::class, 'pdc_category_product_id', 'ctg_id');
+    }
 }

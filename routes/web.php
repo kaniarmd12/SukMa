@@ -50,5 +50,7 @@ Route::post('/admin/ProductCategory/{id}/edit', [ProductCategoryController::Clas
 Route::get('/admin/Product', [ProductController::Class, 'index'])->name('Product');
 Route::get('/admin/Product/create', [ProductController::Class, 'create'])->name('product.create');
 Route::post('/admin/Product/create', [ProductController::Class, 'store'])->name('product.create');
+Route::get('/admin/Product/{id}/edit', [ProductController::Class, 'edit'])->name('product.edit'); 
+Route::post('/admin/Product/{id}/edit', [ProductController::Class, 'update'])->name('product.update'); 
 
 });
