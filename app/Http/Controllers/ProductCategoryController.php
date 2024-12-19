@@ -18,7 +18,7 @@ class ProductCategoryController extends Controller
         $title = 'Delete User!';
         $text = "Are you sure you want to delete?";
         confirmDelete($title, $text);
-        return view('admin.category_product.index', compact(['product_category']));
+        return view('owner.category_product.index', compact(['product_category']));
     }
 
     /**
@@ -26,7 +26,7 @@ class ProductCategoryController extends Controller
      */
     public function create()
     {
-        return view ('admin.category_product.create');
+        return view ('owner.category_product.create');
     }
 
     /**
@@ -41,7 +41,7 @@ class ProductCategoryController extends Controller
         ]);
         Alert::success('Berhasil Ditambahkan', 'Berhasil Menambahkan Kategori Produk');
 
-        return redirect('/admin/ProductCategory'); 
+        return redirect('/owner/ProductCategory'); 
     }
     /**
      * Display the specified resource.
@@ -57,7 +57,7 @@ class ProductCategoryController extends Controller
     public function edit(product_category $product_category,$id)
     {
         $product_category = product_category::FindOrFail($id);
-        return view ('admin.category_product.edit',compact(['product_category']));
+        return view ('owner.category_product.edit',compact(['product_category']));
     }
 
     /**
@@ -68,7 +68,7 @@ class ProductCategoryController extends Controller
         $updateproduct_category = product_category::FindOrFail($id);
         $updateproduct_category->ctg_name = $request->ctg_name;
         $updateproduct_category->save();
-        return redirect('/admin/ProductCategory');
+        return redirect('/owner/ProductCategory');
     }
 
     /**
@@ -79,7 +79,7 @@ class ProductCategoryController extends Controller
         $product_category = product_category::findOrFail($id)->first();
         // dd ($product_category);
         $product_category->delete();
-        return redirect('/admin/ProductCategory');
+        return redirect('/owner/ProductCategory');
         
     }
 }

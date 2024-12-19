@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('bsn_username');
             $table->string('bsn_email');
             $table->string('bsn_bussines_name');
-            $table->string('bsn_owner_name');
+            $table->string('bsn_owner_name');  
             $table->biginteger('bsn_no_handphone');
             $table->string('bsn_addres');
             $table->string('bsn_postal_code');
@@ -26,7 +26,7 @@ return new class extends Migration
             $table->unsignedBigInteger('bsn_updated_by')->unsigned()->nullable();
       
             $table->softDeletes();
-            $table->renameColumn('deleted_at', 'scs_deleted_at');
+            $table->renameColumn('deleted_at', 'bsn_deleted_at');
             $table->string('bsn_sys_note')->nullable();
 
 

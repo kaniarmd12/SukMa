@@ -13,9 +13,12 @@ return new class extends Migration
     {
         Schema::create('incomes', function (Blueprint $table) {
             $table->bigIncrements('icm_id');
-            $table->timestamp('icm_datetime');
+            $table->unsignedBigInteger('icm_order_id');
+            $table->unsignedBigInteger('icm_total_id');
 
-            $table->unsignedBigInteger('icm_order_id');  
+            $table->timestamps();
+            $table->renameColumn('updated_at','icm_updated_at');
+            $table->renameColumn('created_at','icm_created_at');
             $table->unsignedBigInteger('icm_created_by')->unsigned()->nullable();
             $table->unsignedBigInteger('icm_deleted_by')->unsigned()->nullable();
             $table->unsignedBigInteger('icm_updated_by')->unsigned()->nullable();
@@ -29,6 +32,7 @@ return new class extends Migration
             $table->foreign('icm_updated_by')->references('usr_id')->on('users')->onDelete('cascade');
             $table->foreign('icm_deleted_by')->references('usr_id')->on('users')->onDelete('cascade');
             $table->foreign('icm_order_id')->references('odr_id')->on('orders')->onDelete('cascade');
+            $table->foreign('icm_total_id')->references('odr_id')->on('orders')->onDelete('cascade');
         });
     }
 

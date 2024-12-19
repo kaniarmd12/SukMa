@@ -4,7 +4,7 @@
         <!-- ---------------------------------- -->
         <div class="brand-logo d-flex align-items-center justify-content-between">
           <a href="./main/index.html" class="text-nowrap logo-img">
-            <img src="./assets/images/logos/logosukma.svg" class="dark-logo" alt="Logo-Dark" />
+            <img src="{{asset('assets/images/logos/logosukma2.svg')}}" class="dark-logo" alt="Logo-Dark" />
             <img src="./assets/images/logos/light-logo.svg" class="light-logo" alt="Logo-light" />
           </a>
           <a href="javascript:void(0)" class="sidebartoggler ms-auto text-decoration-none fs-5 d-block d-xl-none">
@@ -27,12 +27,12 @@
             <li class="sidebar-item">
               <a class="sidebar-link" href="" id="get-url" aria-expanded="false">
                 <span>
-                  <i class="ti ti-aperture"></i>
+                  <i class="ti ti-home"></i>
                 </span>
-                <span class="hide-menu">Modern</span>
+                <span class="hide-menu">Beranda</span>
               </a>
             </li>
-            <li class="sidebar-item">
+            {{-- <li class="sidebar-item">
               <a class="sidebar-link" href="./main/index2.html" aria-expanded="false">
                 <span>
                   <i class="ti ti-shopping-cart"></i>
@@ -124,16 +124,16 @@
                   </a>
                 </li>
               </ul>
-            </li>
+            </li> --}}
 
             <!-- ---------------------------------- -->
             <!-- Apps -->
             <!-- ---------------------------------- -->
             <li class="nav-small-cap">
               <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-              <span class="hide-menu">Apps</span>
+              <span class="hide-menu">Perizinan</span>
             </li>
-            <li class="sidebar-item">
+            {{-- <li class="sidebar-item">
               <a class="sidebar-link" href="./main/app-calendar.html" aria-expanded="false">
                 <span>
                   <i class="ti ti-calendar"></i>
@@ -164,48 +164,83 @@
                 </span>
                 <span class="hide-menu">Email</span>
               </a>
-            </li>
+            </li> --}}
             <li class="sidebar-item">
-              <a class="sidebar-link" href="./main/app-notes.html" aria-expanded="false">
+              <a class="sidebar-link" href="/owner/BussinesSubmission" aria-expanded="false">
+                <span>
+                  <i class="ti ti-checklist"></i>
+                </span>
+                <span class="hide-menu">Permintaan Izin Usaha</span>
+              </a>
+            </li>
+
+            <li class="nav-small-cap">
+              <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+              <span class="hide-menu">Pengelolaan</span>
+            </li>
+
+            
+
+            {{-- <li class="sidebar-item">
+              <a class="sidebar-link" href="/owner/bussines" aria-expanded="false">
                 <span>
                   <i class="ti ti-notes"></i>
                 </span>
-                <span class="hide-menu">Notes</span>
+                <span class="hide-menu">Kelola Data Usaha</span>
               </a>
-            </li>
-            <li class="sidebar-item">
+            </li> --}}
+            {{-- <li class="sidebar-item">
               <a class="sidebar-link" href="./main/app-contact.html" aria-expanded="false">
                 <span>
                   <i class="ti ti-phone"></i>
                 </span>
                 <span class="hide-menu">Contact Table</span>
               </a>
-            </li>
-            <li class="sidebar-item">
-              <a class="sidebar-link" href="./main/app-contact2.html" aria-expanded="false">
-                <span>
-                  <i class="ti ti-list-details"></i>
-                </span>
-                <span class="hide-menu">Contact List</span>
-              </a>
-            </li>
-            <li class="sidebar-item">
+            </li>--}}
+            
+            {{-- <li class="sidebar-item">
               <a class="sidebar-link" href="./main/app-invoice.html" aria-expanded="false">
                 <span>
                   <i class="ti ti-file-text"></i>
                 </span>
                 <span class="hide-menu">Invoice</span>
-              </a>
-            </li>
+              </a> --}}
+            {{-- </li>
             <li class="sidebar-item">
               <a class="sidebar-link" href="./main/page-user-profile.html" aria-expanded="false">
                 <span>
                   <i class="ti ti-user-circle"></i>
                 </span>
-                <span class="hide-menu">User Profile</span>
+                <span class="hide-menu">Kelola Data Pembeli</span>
               </a>
-            </li>
+            </li> --}}
             <li class="sidebar-item">
+              <a class="sidebar-link" href="/owner/ProductCategory" aria-expanded="false">
+                <span>
+                  <i class="ti ti-list-details"></i>
+                </span>
+                <span class="hide-menu">Kelola Kategori Produk</span>
+              </a>
+            </li> 
+          </li>
+          <li class="sidebar-item">
+            <a class="sidebar-link" href="/owner/Product" aria-expanded="false">
+              <span>
+                <i class="ti ti-basket"></i>
+              </span>
+              <span class="hide-menu">Kelola Produk</span>
+            </a>
+          </li> 
+
+          <li class="sidebar-item">
+            <a class="sidebar-link" href="/owner/order" aria-expanded="false">
+              <span>
+                <i class="ti ti-ad-2"></i>
+              </span>
+              <span class="hide-menu">Kelola Pesanan </span>
+            </a>
+          </li>
+            {{-- <li class="sidebar-item">
               <a class="sidebar-link has-arrow" href="javascript:void(0)" aria-expanded="false">
                 <span class="d-flex">
                   <i class="ti ti-chart-donut-3"></i>
@@ -230,8 +265,8 @@
                   </a>
                 </li>
               </ul>
-            </li>
-            <li class="sidebar-item">
+            </li> --}}
+            {{-- <li class="sidebar-item">
               <a class="sidebar-link has-arrow" href="javascript:void(0)" aria-expanded="false">
                 <span class="d-flex">
                   <i class="ti ti-basket"></i>
@@ -288,39 +323,39 @@
                   </a>
                 </li>
               </ul>
-            </li>
+            </li> --}}
             <!-- ---------------------------------- -->
             <!-- PAGES -->
             <!-- ---------------------------------- -->
             <li class="nav-small-cap">
               <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-              <span class="hide-menu">PAGES</span>
+              <span class="hide-menu">Keuangan</span>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="./main/page-pricing.html" aria-expanded="false">
+              <a class="sidebar-link" href="/owner/income" aria-expanded="false">
                 <span>
                   <i class="ti ti-currency-dollar"></i>
                 </span>
-                <span class="hide-menu">Pricing</span>
+                <span class="hide-menu">Kelola Data Pemasukan</span>
               </a>
             </li>
-            <li class="sidebar-item">
+            {{-- <li class="sidebar-item">
               <a class="sidebar-link" href="./main/page-faq.html" aria-expanded="false">
                 <span>
                   <i class="ti ti-help"></i>
                 </span>
                 <span class="hide-menu">FAQ</span>
               </a>
-            </li>
+            </li> --}}
             <li class="sidebar-item">
-              <a class="sidebar-link" href="./main/page-account-settings.html" aria-expanded="false">
+              <a class="sidebar-link" href="/owner/output" aria-expanded="false">
                 <span>
-                  <i class="ti ti-user-circle"></i>
+                  <i class="ti ti-businessplan"></i>
                 </span>
-                <span class="hide-menu">Account Setting</span>
+                <span class="hide-menu">Kelola Data Pengeluaran</span>
               </a>
             </li>
-            <li class="sidebar-item">
+            {{-- <li class="sidebar-item">
               <a class="sidebar-link" href="./landingpage/index.html" aria-expanded="false">
                 <span>
                   <i class="ti ti-app-window"></i>
@@ -1494,7 +1529,7 @@
                 </span>
                 <span class="hide-menu">External Link</span>
               </a>
-            </li>
+            </li> --}}
           </ul>
         </nav>
 

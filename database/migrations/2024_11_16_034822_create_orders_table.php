@@ -13,9 +13,14 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->bigIncrements('odr_id');
-            $table->string('odr_status order');
+            $table->unsignedBigInteger('odr_customer_id');
+            $table->unsignedBigInteger('odr_product_id');
+            $table->string('odr_status_order');
             $table->biginteger('odr_total');
 
+            $table->timestamps();
+            $table->renameColumn('updated_at','odr_updated_at');
+            $table->renameColumn('created_at','odr_created_at');
             $table->unsignedBigInteger('odr_created_by')->unsigned()->nullable();
             $table->unsignedBigInteger('odr_deleted_by')->unsigned()->nullable();
             $table->unsignedBigInteger('odr_updated_by')->unsigned()->nullable();
@@ -28,7 +33,7 @@ return new class extends Migration
             $table->foreign('odr_created_by')->references('usr_id')->on('users')->onDelete('cascade');
             $table->foreign('odr_updated_by')->references('usr_id')->on('users')->onDelete('cascade');
             $table->foreign('odr_deleted_by')->references('usr_id')->on('users')->onDelete('cascade');
-            
+            $table->foreign('odr_customer_id')->references('usr_id')->on('users')->onDelete('cascade');
            
         });
     }

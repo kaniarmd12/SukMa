@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr" data-bs-theme="light" data-color-theme="Blue_Theme" data-layout="vertical">
 
 <!-- head -->
-@include('admin.head')
+@include('owner.head')
 <!-- endhead -->
 <body>
   <div class="toast toast-onload align-items-center text-bg-primary border-0" role="alert" aria-live="assertive" aria-atomic="true">
@@ -21,18 +21,18 @@
   </div>
   <div id="main-wrapper">
     <!-- Sidebar Start -->
-    @include('admin.sidebar')
+    @include('owner.sidebar')
     <!--  Sidebar End -->
     <div class="page-wrapper">
       <!--  Header Start -->
-      @include('admin.navbar')
+      @include('owner.navbar')
       <!--  Header End -->
 
       <aside class="left-sidebar with-horizontal">
         <!-- Sidebar scroll-->
         <div>
           <!-- Sidebar navigation-->
-        @include('admin.sidenav') 
+        @include('owner.sidenav') 
           <!-- End Sidebar navigation -->
         </div>
         <!-- End Sidebar scroll-->
@@ -40,7 +40,7 @@
 
       <div class="body-wrapper">
         <div class="container-fluid">
-          @yield('contents')
+          @yield('content')
         </div>
       </div>
       <script>
@@ -331,7 +331,7 @@
                     </button>
                     <input type="text" class="form-control round-20 bg-transparent text-muted fs-2 border-0 text-center qty" placeholder="" aria-label="Example text with button addon" aria-describedby="add2" value="1" />
                     <button class="btn text-success bg-success-subtle p-0 round-20 border-0 add" type="button" id="addon34">
-                      +
+                    
                     </button>
                   </div>
                 </div>
@@ -380,7 +380,9 @@
   </div>
   <div class="dark-transparent sidebartoggler"></div>
  {{-- scropt --}}
- @include('admin.script')
+@include('sweetalert::alert')
+
+ @include('owner.script')
  {{-- endscript --}}
 </body>
 

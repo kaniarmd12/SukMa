@@ -1,4 +1,4 @@
-@extends('admin.master')
+@extends('owner.master')
 
 @push('link')
     <link rel="stylesheet" href="{{ asset('assets/libs/datatables.net-bs5/css/dataTables.bootstrap5.min.css') }}">
@@ -6,7 +6,7 @@
 @endpush
 
 @section('title')
-    SukMa | Kategori Produk
+    SukMa | Izin Usaha
 @endsection
 
 @section('content')
@@ -14,8 +14,8 @@
         <div class="card">
             <div class="card-body">
                 <div class="mb-5 position-relative">
-                    <h4 class="card-title mb-0">Daftar Kategori</h4>
-                    <a href="/admin/ProductCategory/create" class="btn btn-primary position-absolute    top-0 end-0">Tambah Kategori</a>
+                    <h4 class="card-title mb-0">Permintaan Izin Usaha</h4>
+                    <a href="/owner/BussinesSubmission/create" class=" position-absolute    top-0 end-0"></a>
                 </div>
                 <p class="card-subtitle mb-3">
                     
@@ -26,8 +26,10 @@
                             <!-- start row -->
                             <tr>
                                 <th width="10%">No</th>
-                                <th>Nama Kategori</th>
-                                <th>Aksi</th>
+                                <th>Nama Usaha</th>
+                                <th>Foto Usaha</th>
+                                <th>Status</th>
+                              
                                
                                 
                             </tr>
@@ -35,17 +37,25 @@
                         </thead>
                         <tbody>
                             <!-- start row -->
-                            @foreach ($product_category as $no=>$product_category)
+                            @foreach ($business_submission as $no=>$business_submission)
                             <tr>
                                 
                                 <td>{{$no+1}}</td>
-                                <td>{{$product_category->ctg_name}}</td>
-                              
+                                <td>{{$business_submission->sbn_bussines_name}}</td>
+                                
+                               
+                                
                                 <td>
-                                     <a href="/admin/ProductCategory/{{$product_category->ctg_id}}/edit" class="btn btn-primary">Edit</a>
-                                     <a href="/admin/ProductCategory/{{$product_category->ctg_id}}/destroy" class="btn btn-danger" data-confirm-delete="true">Delete</a>
-
+                                    <img width="100px" src="{{ asset('storage/'.$business_submission->sbn_pictures_bussines)}}" alt="">
                                 </td>
+                                <td>
+                                    @if($business_submission->sbn_status == 0)
+                                    <span class="mb-1 badge text-bg-danger">Belum Disetujui</span>
+                                    @else
+                                    <span class="mb-1 badge text-bg-success">Telah disetujui</span>
+                                    @endif
+                                </td>
+                                
 
 
                                 
@@ -60,8 +70,10 @@
 
                             <tr>
                                 <th width="10%">No</th>
-                                <th>Nama Kategori</th>
-                                <th>Aksi</th>
+                                <th>Nama Usaha</th>
+                                <th>Foto Usaha</th>
+                                <th>Status</th>
+                            
                             </tr>
                             <!-- end row -->
                         </tfoot>

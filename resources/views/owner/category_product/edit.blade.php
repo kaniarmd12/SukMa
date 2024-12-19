@@ -1,11 +1,11 @@
-@extends('admin.master')
+@extends('owner.master')
 
 @push('link')
     
 @endpush
 
 @section('title')
-    SukMa | Tambah Kategori
+    SukMa | Edit Kategori
 @endsection
 
 @section('content')
@@ -21,7 +21,7 @@
                 <div class="mb-4 row align-items-center">
                   <label for="exampleInputText1" class="form-label col-sm-3 col-form-label">Nama Kategori</label>
                   <div class="col-sm-9">
-                    <input type="text" name="ctg_name" class="form-control" id="exampleInputText1" placeholder="" required oninvalid="this.setCustomValidity('Nama Jurusan Wajib Diisi')" 
+                    <input type="text" name="ctg_name" value="{{$product_category->ctg_name}}" class="form-control" id="exampleInputText1" placeholder="" required oninvalid="this.setCustomValidity('Nama Jurusan Wajib Diisi')" 
                     onchange="this.setCustomValidity('')">
                   </div>
                   @error('ctg_name')

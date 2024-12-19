@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\income;
 use Illuminate\Http\Request;
+use Alert;
 
 class IncomeController extends Controller
 {
@@ -12,7 +13,8 @@ class IncomeController extends Controller
      */
     public function index()
     {
-        //
+        $income = income::all();
+        return view('owner.income.index', compact(['income']));
     }
 
     /**

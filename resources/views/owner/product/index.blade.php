@@ -1,4 +1,4 @@
-@extends('admin.master')
+@extends('owner.master')
 
 @push('link')
     <link rel="stylesheet" href="{{ asset('assets/libs/datatables.net-bs5/css/dataTables.bootstrap5.min.css') }}">
@@ -6,7 +6,7 @@
 @endpush
 
 @section('title')
-    SukMa | Kategori Produk
+    SukMa | Kelola Produk
 @endsection
 
 @section('content')
@@ -15,7 +15,7 @@
             <div class="card-body">
                 <div class="mb-5 position-relative">
                     <h4 class="card-title mb-0">Produk</h4>
-                    <a href="/admin/Product/create" class="btn btn-primary position-absolute    top-0 end-0">Tambah Produk</a>
+                    <a href="/owner/Product/create" class="btn btn-primary position-absolute    top-0 end-0">Tambah Produk</a>
                 </div>
                 <p class="card-subtitle mb-3">
                     
@@ -48,14 +48,15 @@
                                     <img width="100px" src="{{ asset('storage/'.$product->pdc_pictures_product)}}" alt="">
                                 </td>
                                 <td>{{$product->pdc_name}}</td>
+                                <td>{{$product->product_category->ctg_name}}</td>
                                 <td>{{$product->pdc_price}}</td>
                                 <td>{{$product->pdc_detail_product}}</td>
                                 <td>{{$product->pdc_stok_product}}</td>
-                                <td>{{$product->pdc_category_product_id}}</td>
+                                
                               
                                 <td>
-                                     <a href="/admin/Product/{{$product->pdc_id}}/edit" class="btn btn-primary">Edit</a>
-                                     <a href="/admin/Product/{{$product->pdc_id}}/destroy" class="btn btn-danger" data-confirm-delete="true">Delete</a>
+                                     <a href="/owner/Product/{{$product->pdc_id}}/edit" class="btn btn-primary">Edit</a>
+                                     <a href="/owner/Product/{{$product->pdc_id}}/destroy" class="btn btn-danger" data-confirm-delete="true">Delete</a>
 
                                 </td>
 

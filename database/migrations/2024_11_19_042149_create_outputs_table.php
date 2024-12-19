@@ -13,11 +13,13 @@ return new class extends Migration
     {
         Schema::create('outputs', function (Blueprint $table) {
             $table->bigIncrements('otp_id');
-            $table->timestamp('otp_datetime');
             $table->string('otp_output_name');
             $table->biginteger('otp_output_total');
             $table->string('otp_information');
 
+            $table->timestamps();
+            $table->renameColumn('updated_at','otp_updated_at');
+            $table->renameColumn('created_at','otp_created_at');
             $table->unsignedBigInteger('otp_created_by')->unsigned()->nullable();
             $table->unsignedBigInteger('otp_deleted_by')->unsigned()->nullable();
             $table->unsignedBigInteger('otp_updated_by')->unsigned()->nullable();

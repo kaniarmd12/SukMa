@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\bussines;
+
 use Illuminate\Http\Request;
+Use App\Models\bussines;
+use Alert;
 
 class BussinesController extends Controller
 {
@@ -11,9 +13,14 @@ class BussinesController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
-        return view ('admin.bussines.index');
-    }
+{
+    // Ambil semua data bisnis dari database
+    $bussines = bussines::all();
+
+    // Kirimkan data ke view
+    return view('owner.bussines.index', compact('bussines'));
+}
+
 
     /**
      * Show the form for creating a new resource.
