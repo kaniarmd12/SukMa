@@ -8,12 +8,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- Favicon icon-->
-<link rel="shortcut icon" type="image/png" href="{{asset('assets/images/logos/favicon.png')}}" />
+  <link rel="shortcut icon" type="image/png" href="../assets/images/logos/favicon.png" />
 
   <!-- Core Css -->
   <link rel="stylesheet" href="../assets/css/styles.css" />
 
-  <title>Login Sukma</title>
+  <title>SukMa</title>
 </head>
 
 <body>
@@ -22,51 +22,67 @@
     <img src="../assets/images/logos/favicon.png" alt="loader" class="lds-ripple img-fluid" />
   </div>
   <div id="main-wrapper" class="auth-customizer-none">
-    <div class="position-relative overflow-hidden radial-gradient min-vh-100 w-100 d-flex align-items-center justify-content-center">
-      <div class="d-flex align-items-center justify-content-center w-100">
-        <div class="row justify-content-center w-100">
-          <div class="col-md-8 col-lg-6 col-xxl-3 auth-card">
-            <div class="card mb-0">
-              <div class="card-body">
-                <a href="../main/index.html" class="text-nowrap logo-img text-center d-block mb-5 w-100">
-                  <img src="../assets/images/logos/logosukma3.svg" class="dark-logo" alt="Logo-Dark" />
-                  <img src="../assets/images/logos/light-logo.svg" class="light-logo" alt="Logo-light" />
-                </a>
+    <div class="position-relative overflow-hidden radial-gradient min-vh-100 w-100">
+      <div class="position-relative z-index-5">
+        <div class="row">
+          <div class="col-xl-7 col-xxl-8">
+            <a href="../main/index.html" class="text-nowrap logo-img d-block px-4 py-9 w-100">
+              <img src="../assets/images/logos/logosukma3.svg" class="dark-logo" alt="Logo-Dark" />
+              <img src="../assets/images/logos/light-logo.svg" class="light-logo" alt="Logo-light" />
+            </a>
+            <div class="d-none d-xl-flex align-items-center justify-content-center h-n80">
+              <img src="../assets/images/backgrounds/bg.svg" alt="modernize-img" class="img-fluid" width="650">
+            </div>
+          </div>
+          <div class="col-xl-5 col-xxl-4">
+            <div class="authentication-login min-vh-100 bg-body row justify-content-center align-items-center p-4">
+              <div class="auth-max-width col-sm-8 col-md-6 col-xl-7 px-4">
+                <h2 class="mb-1 fs-7 fw-bolder">Selamat Datang di SukMa</h2>
+                <p class="mb-7">Sukamukti Market</p>
                 
-                @error('email')
-                <div class="alert alert-danger alert-dismissible bg-danger text-white border-0 fade show" role="alert">
-                  <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="Close"></button>
-                  <strong class="text-center">Username atau Password Salah </strong> 
+                {{-- <div class="row">
+                  <div class="col-6 mb-2 mb-sm-0">
+                    <a class="btn text-dark border fw-normal d-flex align-items-center justify-content-center rounded-2 py-8" href="javascript:void(0)" role="button">
+                      <img src="../assets/images/svgs/google-icon.svg" alt="modernize-img" class="img-fluid me-2" width="18" height="18">
+                      <span class="flex-shrink-0">with Google</span>
+                    </a>
+                  </div>
+                  <div class="col-6">
+                    <a class="btn text-dark border fw-normal d-flex align-items-center justify-content-center rounded-2 py-8" href="javascript:void(0)" role="button">
+                      <img src="../assets/images/svgs/facebook-icon.svg" alt="modernize-img" class="img-fluid me-2" width="18" height="18">
+                      <span class="flex-shrink-0">with FB</span>
+                    </a>
+                  </div>
                 </div>
-                @enderror
-
-                <form  method="POST" action="{{ route('login') }}">
+                <div class="position-relative text-center my-4">
+                  <p class="mb-0 fs-4 px-3 d-inline-block bg-body text-dark z-index-5 position-relative">or sign
+                    Up
+                    with</p>
+                  <span class="border-top w-100 position-absolute top-50 start-50 translate-middle"></span>
+                </div> --}}
+                <form method="POST" action="{{ route('register') }}">
                     @csrf
                   <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">{{ __('Email') }}</label>
-                    <input type="email" id="email" class="form-control" aria-describedby="emailHelp"
-                    name="email" :value="old('email')" required autofocus autocomplete="username" />
+                    <label for="exampleInputEmail1" class="form-label">Nama</label>
+                    <input type="text" class="form-control" name="name" id="exampleInputtext" aria-describedby="textHelp">
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Email</label>
+                    <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                   </div>
                   <div class="mb-4">
-                    <label for="exampleInputPassword1" class="form-label"> {{ __('Password') }}</label>
-                    <input type="password" id=password class="form-control"  name="password" required autocomplete="current-password" />
+                    <label for="exampleInputPassword1" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password">
+                    
                   </div>
-                  <div class="d-flex align-items-center justify-content-between mb-4">
-                    <div class="form-check">
-                      <input class="form-check-input primary" type="checkbox" value="" id="flexCheckChecked" checked>
-                      <label class="form-check-label text-dark" for="flexCheckChecked">
-                        {{ __('Remember me') }}
-                      </label>
-                    </div>
-                    <a class="text-primary fw-medium" href="../main/authentication-forgot-password.html">Forgot
-                      Password ?</a>
-                  </div>
-                  
-                  <input type="submit" class="btn btn-primary w-100 py-8 mb-4 rounded-2" value="{{ __('Log in') }}">
-                  <div class="d-flex align-items-center justify-content-center">
-                    <p class="fs-4 mb-0 fw-medium">New to Sukamukti Market?</p>
-                    <a class="text-primary fw-medium ms-2" href="register2">Create an
-                      account</a>
+                  <div class="mb-4">
+                    <label for="exampleInputPassword1" class="form-label">Ulangi Password</label>
+                    <input  class="form-control" id="password_confirmation"  type="password" name="password_confirmation" required autocomplete="new-password" >
+                  </div>
+                  <input type="submit" class="btn btn-primary w-100 py-8 mb-4 rounded-2" value="Sign Up">
+                  <div class="d-flex align-items-center">
+                    <p class="fs-4 mb-0 text-dark">Already have an Account?</p>
+                    <a class="text-primary fw-medium ms-2" href="../main/authentication-login.html">Sign In</a>
                   </div>
                 </form>
               </div>
@@ -229,11 +245,11 @@
   </div>
   <div class="dark-transparent sidebartoggler"></div>
   <!-- Import Js Files -->
-  <script src="{{asset('assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js')}}"></script>
-  <script src="{{asset('assets/libs/simplebar/dist/simplebar.min.js')}}"></script>
-  <script src="{{asset('assets/js/theme/app.init.js')}}"></script>
-  <script src="{{asset('assets/js/theme/theme.js')}}"></script>
-  <script src="{{asset('assets/js/theme/app.min.js')}}"></script>
+  <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/libs/simplebar/dist/simplebar.min.js"></script>
+  <script src="../assets/js/theme/app.init.js"></script>
+  <script src="../assets/js/theme/theme.js"></script>
+  <script src="../assets/js/theme/app.min.js"></script>
 
   <!-- solar icons -->
   <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>

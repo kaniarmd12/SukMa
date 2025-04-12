@@ -40,7 +40,7 @@ Route::get('/login2', function () {
 });
 
 Route::get('/register2', function () {
-    return view('auth.register2');
+    return view('auth.register3');
 });
 
 Route::group(['middleware' => 'auth'], function(){
@@ -86,5 +86,6 @@ Route::delete('/owner/output/{id}/destroy', [OutputController::Class, 'destroy']
 Route::get('/admin/Business_Approval', [BusinessApprovalController::Class, 'index'])->name('Business_Approval');
 Route::get('/admin/Business_Approval/{id}/detail', [BusinessApprovalController::Class, 'detail'])->name('Business_Approval');
 Route::get('/admin/Business_Approval/{id}/approve', [BusinessApprovalController::Class, 'approve'])->name('Business_Approval');
+Route::delete('/admin/Business_Approval/{id}/destroy', [BusinessApprovalController::Class, 'destroy'])->name('Business_Approval.destroy');
 
 });

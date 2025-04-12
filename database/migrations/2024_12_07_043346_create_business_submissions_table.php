@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('business_submissions', function (Blueprint $table) {
             $table->bigIncrements('sbn_id');
             $table->string('sbn_bussines_name');
-            $table->string('sbn_owner_name');
+            $table->unsignedBigInteger('sbn_owner_id');
             $table->string('sbn_no_handphone');
             $table->string('sbn_address');
             $table->string('sbn_pictures_bussines');
@@ -32,6 +32,7 @@ return new class extends Migration
             $table->foreign('sbn_created_by')->references('usr_id')->on('users')->onDelete('cascade');
             $table->foreign('sbn_updated_by')->references('usr_id')->on('users')->onDelete('cascade');
             $table->foreign('sbn_deleted_by')->references('usr_id')->on('users')->onDelete('cascade');
+            $table->foreign('sbn_owner_id')->references('usr_id')->on('users')->onDelete('cascade');
         });
 
         // Rename default timestamps and soft deletes

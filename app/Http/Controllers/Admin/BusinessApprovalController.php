@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\business_submission;
+use App\Models\User;
 
 use Illuminate\Http\Request;
 use Alert;
@@ -15,18 +16,22 @@ class BusinessApprovalController
     public function index()
     {
         $business_submission = business_submission::all();
+        $users = User::all();
         $title = 'Delete User!';
         $text = "Are you sure you want to delete?";
         confirmDelete($title, $text);
         return view('admin.business_approval.index',compact(['business_submission']));
+
     }
 
     /**
      * Show the form for creating a new resource.
      */
     public function create()
+
     {
-        return view ('owner.business_approval.create');
+        $users = User::all();
+        return view ('owner.business_approval.create', compact(['users']));
     }
 
     /**
@@ -42,9 +47,10 @@ class BusinessApprovalController
      */
     public function detail($id)
     {
+        $users = User::all();
         $business_submission = business_submission::findOrFail($id);
 
-        return view('admin.business_approval.detail',compact(['business_submission']));
+        return view('admin.business_approval.detail',compact(['business_submission','users']));
         
     }
 
@@ -67,9 +73,12 @@ class BusinessApprovalController
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Business_Approval $business_Approval)
+    public function destroy($id)
     {
-        //
+        $business_Approval = business_submission::findOrFail($id)->first();
+        // dd ($product_category);
+        $business_Approval->delete();
+        return redirect('/admin/Business_Approval');
     }
     public function approve($id)
     {

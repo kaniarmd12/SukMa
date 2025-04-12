@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\business_submission;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 Use Alert;
 
 class BusinessSubmissionController extends Controller
@@ -11,10 +13,11 @@ class BusinessSubmissionController extends Controller
     public function index()
     {
         $business_submission = business_submission::all();
+        $users = User::all();
         $title = 'Delete User!';
         $text = "Are you sure you want to delete?";
         confirmDelete($title, $text);
-        return view('owner.bussines_submission.index', compact(['business_submission']));
+        return view('owner.bussines_submission.index', compact(['business_submission','users']));
     }
 
     /**
@@ -22,6 +25,7 @@ class BusinessSubmissionController extends Controller
      */
     public function create()
     {
+        $users = User::all();
         return view ('owner.bussines_submission.create');
     }
 
@@ -44,7 +48,7 @@ class BusinessSubmissionController extends Controller
     // Simpan data ke database
     $business_submission = business_submission::create([
         'sbn_bussines_name' => $request->sbn_bussines_name,
-        'sbn_owner_name' => $request->sbn_owner_name,
+        'sbn_owner_id' => Auth::user()->usr_id,
         'sbn_no_handphone' => $request->sbn_no_handphone,
         'sbn_address' => $request->sbn_address,
         'sbn_pictures_bussines' => $imagePath, // Path file disimpan di database
@@ -69,8 +73,9 @@ class BusinessSubmissionController extends Controller
      */
     public function edit(business_submission $business_submission,$id)
     {
+        $users = User::all();
         $business_submission = business_submission::FindOrFail($id);
-        return view ('owner.business_submission.edit',compact(['business_submission']));
+        return view ('owner.business_submission.edit',compact(['business_submission','users']));
     }
 
     /**

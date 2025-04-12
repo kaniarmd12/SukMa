@@ -30,7 +30,7 @@
                                 <th>Nama Produk</th>
                                 <th>Kategori Produk</th>
                                 <th>Harga Produk</th>
-                                <th>Detail Produk</th>
+                                {{-- <th>Detail Produk</th> --}}
                                 <th>Stok Produk</th>
                                 <th>Aksi</th>
                                
@@ -50,7 +50,7 @@
                                 <td>{{$product->pdc_name}}</td>
                                 <td>{{$product->product_category->ctg_name}}</td>
                                 <td>{{$product->pdc_price}}</td>
-                                <td>{{$product->pdc_detail_product}}</td>
+                                {{-- <td>{{$product->pdc_detail_product}}</td> --}}
                                 <td>{{$product->pdc_stok_product}}</td>
                                 
                               
@@ -77,7 +77,7 @@
                                 <th>Nama Produk</th>
                                 <th>Kategori Produk</th>
                                 <th>Harga Produk</th>
-                                <th>Detail Produk</th>
+                                {{-- <th>Detail Produk</th> --}}
                                 <th>Stok Produk</th>
                                 <th>Aksi</th>
                             </tr>

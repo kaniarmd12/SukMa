@@ -60,6 +60,8 @@
                                     @if($business_submission->sbn_status == 0)
                                     <a href="/admin/Business_Approval/{{$business_submission->sbn_id}}/approve" class="btn btn-success">setujui</a>
                                     @endif
+                                    <a href="/admin/Business_Approval/{{$business_submission->sbn_id}}/destroy" class="btn btn-danger" data-confirm-delete="true">Delete</a>
+
                                 </td>
                                 
 

@@ -30,16 +30,7 @@
                   @enderror
                 </div>
                
-                <div class="mb-4 row align-items-center">
-                    <label for="exampleInputText2" class="form-label col-sm-3 col-form-label">Nama Pemilik</label>
-                    <div class="col-sm-9">
-                      <input type="text" name="sbn_owner_name" class="form-control" id="exampleInputText2" placeholder="" required oninvalid="this.setCustomValidity('Singkatan Wajib Diisi')" 
-                      onchange="this.setCustomValidity('')">
-                    </div> 
-                    @error('sbn_owner_name')
-                      <div>error</div>
-                    @enderror
-                </div>
+                
 
                 <div class="mb-4 row align-items-center">
                   <label for="exampleInputText2" class="form-label col-sm-3 col-form-label">No. telepon</label>
